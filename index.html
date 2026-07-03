@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHANVRE DESIGN & ART LTD | Premium Manufacturing</title>
+    <meta name="description" content="Premier entity in Miscellaneous Manufacturing, bespoke design, and digital fabrication software.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* DESIGN SYSTEM: SUSTAINABLE LUXURY & MANUFACTURING */
+        :root {
+            --bg-base: #040806;         /* Deep Forest Night */
+            --bg-panel: #0a120d;        /* Dark Slate Green */
+            --accent-main: #10b981;     /* Emerald / Mint */
+            --accent-glow: rgba(16, 185, 129, 0.25);
+            --text-main: #f8fafc;       /* Crisp White */
+            --text-muted: #94a3b8;      /* Silver */
+            --border-light: rgba(16, 185, 129, 0.15);
+            
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+            --font-mono: 'Courier New', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-main);
+            background-color: var(--bg-base);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Abstract Ambient Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20%; left: -10%;
+            width: 70vw; height: 70vh;
+            background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.05) 0%, transparent 60%);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(4, 8, 6, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* CSS Logo Icon: Geometric Assembly / Leaf */
+        .logo-icon {
+            width: 24px; height: 24px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            width: 16px; height: 16px;
+            border: 2px solid var(--accent-main);
+            transform: rotate(45deg);
+        }
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 10px; height: 10px;
+            background: var(--accent-main);
+            border-radius: 50%;
+            transform: translate(6px, -6px);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .nav-links { display: flex; gap: 40px; font-weight: 400; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;}
+        .nav-links a { text-decoration: none; color: var(--text-muted); transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent-main); }
+
+        .btn-nav {
+            background: transparent;
+            color: var(--accent-main) !important;
+            padding: 10px 24px;
+            border: 1px solid var(--accent-main);
+            transition: all 0.3s;
+            font-family: var(--font-display);
+            letter-spacing: 1px;
+            border-radius: 2px;
+        }
+        .btn-nav:hover { background: var(--accent-main); color: var(--bg-base) !important; box-shadow: 0 0 20px var(--accent-glow); }
+
+        /* --- HERO SECTION --- */
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 5% 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-family: var(--font-mono);
+            color: var(--accent-main);
+            font-size: 0.85rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid var(--accent-main);
+            padding-bottom: 5px;
+        }
+
+        header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .text-accent {
+            color: var(--accent-main);
+            font-style: italic;
+        }
+
+        header p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 550px;
+            font-weight: 300;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent-main);
+            color: var(--bg-base);
+            padding: 18px 40px;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px var(--accent-glow);
+            border-radius: 2px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+            filter: brightness(1.1);
+        }
+
+        /* CSS Graphic: Manufacturing Blueprint Assembly */
+        .hero-graphic {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1200px;
+        }
+
+        .assembly-layer {
+            position: absolute;
+            width: 250px; height: 250px;
+            border: 2px solid rgba(255,255,255,0.05);
+            background: rgba(16, 185, 129, 0.02);
+            backdrop-filter: blur(5px);
+            transition: transform 0.5s ease;
+            border-radius: 12px;
+        }
+
+        .layer-bottom { transform: rotateX(60deg) rotateZ(-45deg) translateZ(-80px); animation: float 6s ease-in-out infinite; border-color: rgba(16, 185, 129, 0.1); }
+        .layer-middle { transform: rotateX(60deg) rotateZ(-45deg) translateZ(0px); border-color: var(--accent-main); z-index: 2; animation: float 6s ease-in-out infinite 0.5s; box-shadow: 0 0 40px var(--accent-glow);}
+        .layer-top { transform: rotateX(60deg) rotateZ(-45deg) translateZ(80px); z-index: 3; animation: float 6s ease-in-out infinite 1s; border-color: rgba(255, 255, 255, 0.2); width: 150px; height: 150px;}
+
+        @keyframes float {
+            0%, 100% { margin-top: 0; }
+            50% { margin-top: -30px; }
+        }
+
+        /* --- OPERATIONS GRID --- */
+        .section {
+            padding: 120px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--text-main);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--bg-panel);
+            border: 1px solid rgba(255,255,255,0.03);
+            padding: 50px 40px;
+            transition: all 0.4s;
+            position: relative;
+            border-radius: 4px;
+        }
+
+        .service-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+            background: var(--accent-main); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            background: rgba(16, 185, 129, 0.03);
+            transform: translateY(-5px);
+            border-color: var(--border-light);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .service-card:hover::before { transform: scaleX(1); }
+
+        .card-icon {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--accent-main);
+            margin-bottom: 25px;
+            display: inline-block;
+            font-style: italic;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* --- APP PROMO (SOFTWARE PUBLISHING) --- */
+        .app-promo {
+            background: linear-gradient(135deg, #0a120d 0%, #040806 100%);
+            border: 1px solid var(--border-light);
+            padding: 100px 5%;
+            margin: 80px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+            position: relative;
+            border-radius: 12px;
+        }
+
+        .app-text h2 {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .app-list { list-style: none; margin: 40px 0; }
+        .app-list li {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+        .app-list li::before {
+            content: '⬢'; color: var(--accent-main); font-size: 1.2rem;
+        }
+
+        /* Mobile Mockup - Manufacturing/Client Tracking App */
+        .mockup-phone {
+            width: 100%; max-width: 320px; height: 620px;
+            margin: 0 auto; background: #000;
+            border: 4px solid #111a14; border-radius: 40px;
+            padding: 10px;
+            box-shadow: 0 0 60px rgba(16, 185, 129, 0.1);
+            display: flex; flex-direction: column; z-index: 2;
+        }
+
+        .phone-screen {
+            flex: 1; background: var(--bg-base);
+            border-radius: 30px; overflow: hidden;
+            display: flex; flex-direction: column;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .ui-header {
+            padding: 40px 20px 20px;
+            text-align: left;
+            font-family: var(--font-display);
+            font-size: 1.2rem; color: var(--accent-main);
+            letter-spacing: 1px; text-transform: uppercase;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .ui-content { padding: 20px; flex: 1; display: flex; flex-direction: column; gap: 15px; }
+
+        .status-card {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(0,0,0,0));
+            border: 1px solid var(--border-light);
+            border-radius: 6px; padding: 20px;
+        }
+        
+        .ui-module {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 15px; border-radius: 6px;
+        }
+        .ui-module-title { font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent-main); margin-bottom: 5px; text-transform: uppercase;}
+        
+        .ui-btn {
+            margin-top: auto; background: var(--text-main); color: var(--bg-base);
+            text-align: center; padding: 15px; font-family: var(--font-display);
+            font-weight: 600; text-transform: uppercase; border-radius: 4px; letter-spacing: 1px;
+        }
+
+        /* --- VERIFICATION REGISTRY --- */
+        .registry-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+        }
+
+        .data-panel {
+            background: var(--bg-panel);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 50px;
+            border-radius: 8px;
+        }
+
+        .data-row {
+            margin-bottom: 25px; padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .data-row:last-child { border: none; margin: 0; padding: 0; }
+
+        .data-label {
+            font-family: var(--font-mono); font-size: 0.75rem;
+            color: var(--text-muted); margin-bottom: 5px;
+            display: block; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .data-value {
+            font-size: 1.1rem; color: var(--accent-main); line-height: 1.6;
+            font-family: var(--font-display);
+        }
+
+        form { display: flex; flex-direction: column; gap: 20px; }
+
+        input, textarea {
+            width: 100%; padding: 18px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.1);
+            font-family: var(--font-body); color: var(--text-main);
+            font-size: 1rem; transition: all 0.3s;
+            border-radius: 4px;
+        }
+
+        input:focus, textarea:focus {
+            outline: none; border-color: var(--accent-main);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #020403; border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 100px 5% 40px; margin-top: 100px;
+        }
+
+        .footer-grid {
+            max-width: 1400px; margin: 0 auto; display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px; margin-bottom: 80px;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-main); font-family: var(--font-display);
+            margin-bottom: 25px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 12px; }
+        .footer-col a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .footer-col a:hover { color: var(--text-main); }
+
+        .copyright {
+            text-align: center; padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #555; font-family: var(--font-mono); font-size: 0.8rem;
+        }
+
+        @media (max-width: 992px) {
+            .hero-grid, .app-promo, .registry-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .hero-graphic { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <div class="logo-icon"></div>
+            CHANVRE DESIGN
+        </div>
+        <div class="nav-links">
+            <a href="#services">Manufacturing</a>
+            <a href="#app">Digital Fabrication</a>
+            <a href="#registry">Identity</a>
+            <a href="#contact" class="btn-nav">Client Portal</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="hero-grid">
+            <div>
+                <div class="hero-tag">Miscellaneous Manufacturing</div>
+                <h1>Redefining <br><span class="text-accent">Industrial Design.</span></h1>
+                <p>CHANVRE DESIGN & ART LTD merges traditional craftsmanship with cutting-edge manufacturing processes, delivering premium bespoke designs and sustainable materials globally.</p>
+                <a href="#app" class="btn-primary">Explore Digital Hub</a>
+            </div>
+            
+            <div class="hero-graphic">
+                <div class="assembly-layer layer-bottom"></div>
+                <div class="assembly-layer layer-middle"></div>
+                <div class="assembly-layer layer-top"></div>
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="section">
+        <div class="section-header">
+            <h2>Production Ecosystem</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="card-icon">I.</div>
+                <h3>Bespoke Manufacturing</h3>
+                <p>Producing specialized components and unique product lines. We integrate precision engineering with sustainable material science to exceed industrial standards.</p>
+            </div>
+            <div class="service-card">
+                <div class="card-icon">II.</div>
+                <h3>Artistic Design</h3>
+                <p>Crafting high-end, bespoke artistic installations. Our facilities bridge the gap between creative vision and robust, scalable physical production.</p>
+            </div>
+            <div class="service-card">
+                <div class="card-icon">III.</div>
+                <h3>Supply Chain Logistics</h3>
+                <p>Ensuring seamless delivery of manufactured goods. We manage the entire lifecycle from raw material procurement to final product distribution.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="app" class="section" style="padding-top: 0; border: none;">
+        <div class="app-promo">
+            <div class="app-text">
+                <div class="hero-tag" style="border-bottom: none; border-left: 2px solid var(--accent-main); padding-left: 10px;">Google Play Developer Entity</div>
+                <h2>Chanvre <br>Fabrication App.</h2>
+                <p style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 20px; font-weight: 300;">
+                    To provide unparalleled transparency into our production lines, <strong>CHANVRE DESIGN & ART LTD operates as an official Software Publisher on mobile platforms.</strong>
+                </p>
+                <p style="color: var(--text-muted); line-height: 1.8; font-weight: 300;">
+                    The <em>Chanvre Fabrication Portal</em> allows B2B clients to track manufacturing progress, review 3D models of bespoke items, and manage procurement orders securely from an Android device.
+                </p>
+                
+                <ul class="app-list">
+                    <li>Production Tracking: Real-time updates on manufacturing stages.</li>
+                    <li>Digital Blueprints: Secure viewing of bespoke design models.</li>
+                    <li>Software Publishing: Official developer of proprietary B2B applications.</li>
+                    <li>Data Security: Fully compliant with App Store enterprise standards.</li>
+                </ul>
+            </div>
+            
+            <div class="mockup-phone">
+                <div class="phone-screen">
+                    <div class="ui-header">CH_FABRICATION</div>
+                    <div class="ui-content">
+                        
+                        <div class="status-card">
+                            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">ACTIVE BATCH ORDER</span>
+                            <div style="font-family: var(--font-display); font-size: 1.5rem; color: var(--text-main); margin: 8px 0;">CH-9920-MFG</div>
+                            <span style="color: var(--accent-main); font-size: 0.85rem; font-weight: bold;">ASSEMBLY PHASE</span>
+                        </div>
+
+                        <div class="ui-module">
+                            <div class="ui-module-title">PUBLISHER</div>
+                            <div style="font-size: 1rem; font-weight: 300;">Chanvre Design & Art LTD</div>
+                        </div>
+
+                        <div class="ui-module">
+                            <div class="ui-module-title">SOFTWARE COMPONENT</div>
+                            <div style="color: var(--text-muted); font-family: var(--font-body); font-size: 0.9rem;">B2B Supply Tracker v3.1</div>
+                        </div>
+
+                        <div class="ui-btn">VIEW BLUEPRINTS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="registry" class="section">
+        <div class="section-header">
+            <h2>Corporate Database Registry</h2>
+        </div>
+        <div class="registry-grid">
+            
+            <div class="data-panel">
+                <div class="data-row">
+                    <span class="data-label">Legal Entity Name</span>
+                    <span class="data-value">CHANVRE DESIGN & ART LTD</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">Key Principal</span>
+                    <span class="data-value">Thomas Herold</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">Industry Classification Profile</span>
+                    <span class="data-value" style="font-size: 0.95rem; line-height: 1.8; font-family: var(--font-body); font-weight: 300; color: var(--text-main);">
+                        • Other Miscellaneous Manufacturing<br>
+                        • Miscellaneous Manufacturing<br>
+                        • Manufacturing Industries, nec
+                    </span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">Registered Headquarters</span>
+                    <span class="data-value" style="color: var(--text-main); font-family: var(--font-body); font-size: 0.95rem;">120 High Road LONDON, N2 9ED<br>United Kingdom</span>
+                </div>
+                <div class="data-row" style="border: none;">
+                    <span class="data-label">Official Developer Endpoint</span>
+                    <span class="data-value" style="text-transform: lowercase;"><a href="mailto:info@chanvredesignart.cloud" style="color: var(--accent-main); text-decoration: none;">info@chanvredesignart.cloud</a></span>
+                </div>
+            </div>
+
+            <div id="contact">
+                <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 20px;">Corporate Inquiries</h3>
+                <p style="color: var(--text-muted); margin-bottom: 40px; font-weight: 300;">Contact our London headquarters regarding bespoke manufacturing projects, supply chain partnerships, or mobile application support.</p>
+                
+                <form action="mailto:info@chanvredesignart.cloud" method="POST" enctype="text/plain">
+                    <input type="text" placeholder="Name / Enterprise" required>
+                    <input type="email" placeholder="Corporate Email Address" required>
+                    <textarea placeholder="Describe your manufacturing inquiry or software request..." rows="4" required></textarea>
+                    <button type="submit" class="btn-primary" style="width: 100%; cursor: pointer; box-shadow: none; border: none;">Send Transmission</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 20px; font-size: 1rem;">
+                    <div class="logo-icon" style="width: 18px; height: 18px; border-width: 1px;"></div>
+                    CHANVRE DESIGN
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.85rem; font-weight: 300;">Pioneering sustainable miscellaneous manufacturing, bespoke art design, and advanced digital fabrication systems.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Digital Platforms</h4>
+                <ul>
+                    <li><a href="#">Google Play Publisher Status</a></li>
+                    <li><a href="#">Report Software Bug</a></li>
+                    <li><a href="#" style="color: var(--text-main); font-weight: bold;">Request Account & Data Deletion</a></li>
+                    <li><a href="#">Manufacturing API</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Legal & Compliance</h4>
+                <ul>
+                    <li><a href="#">Manufacturing Terms</a></li>
+                    <li><a href="#">Software Publishing Terms</a></li>
+                    <li><a href="#">Privacy Policy (GDPR / UK GDPR)</a></li>
+                    <li><a href="#">Sustainability Ethics</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 CHANVRE DESIGN & ART LTD. Manufacturing & Software Systems.
+        </div>
+    </footer>
+
+</body>
+</html>
